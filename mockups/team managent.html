@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Team Management Workspace - ReqGit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Hanken+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#737686",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-container": "#ededf9",
+                        "primary-container": "#2563eb",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e1e2ed",
+                        "on-background": "#191b23",
+                        "surface-dim": "#d9d9e5",
+                        "surface-variant": "#e1e2ed",
+                        "on-secondary-container": "#54647a",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "background": "#faf8ff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#bc4800",
+                        "inverse-surface": "#2e3039",
+                        "surface-container-low": "#f3f3fe",
+                        "on-primary-fixed": "#00174b",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary": "#505f76",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "tertiary": "#943700",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "inverse-on-surface": "#f0f0fb",
+                        "surface-bright": "#faf8ff",
+                        "on-surface": "#191b23",
+                        "on-tertiary-container": "#ffede6",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-surface-variant": "#434655",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e7e7f3",
+                        "surface-tint": "#0053db",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-container": "#d0e1fb",
+                        "error-container": "#ffdad6",
+                        "primary": "#004ac6",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "tertiary-fixed": "#ffdbcd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "0.25rem",
+                        "container-max": "1280px",
+                        "base": "4px",
+                        "lg": "1.5rem",
+                        "gutter": "1rem",
+                        "sm": "0.5rem",
+                        "md": "1rem",
+                        "xl": "2.5rem"
+                    },
+                    "fontFamily": {
+                        "button": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "button": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        [data-weight="fill"] .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg antialiased">
+<!-- TopNavBar (Authenticated) -->
+<nav class="bg-surface dark:bg-surface fixed top-0 w-full z-40 border-b border-outline-variant dark:border-outline flex justify-between items-center h-14 px-md">
+<div class="flex items-center gap-md">
+<div class="text-title-md font-title-md font-bold text-primary dark:text-inverse-primary">ReqGit</div>
+<div class="hidden md:flex items-center bg-surface-container-high rounded-full px-sm py-xs border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-xs" style="font-size: 18px;">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm p-0 w-64 text-on-surface placeholder:text-on-surface-variant" placeholder="Search workspaces..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-full cursor-pointer active:scale-95 transition-transform" data-icon="notifications">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded-full cursor-pointer active:scale-95 transition-transform" data-icon="help_outline">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<img alt="User Avatar" class="w-8 h-8 rounded-full ml-sm border border-outline-variant" data-alt="A small, circular avatar portrait of a professional male with a subtle smile. The lighting is clean and modern, set against a neutral studio background. The image is crisp and conveys reliability, fitting perfectly within a sleek enterprise software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-0UbBd-cF_VN_EmiFNNtlbuFGiajWe70CCXCKKBxCBTG5hco0TXFLwH1HDFeq5thGgTjvKZIqy8EG7E-9-KYxyr3Rr9I0oXjKoquHIG2zn-q1ZPCMREisUAyhtsDB01fYScN07DzkkXTOLY7Q7zo334FJcIuX_kLaOH8bxDoCmiOUkDfl9Qd5F2j6EWvkWx55LE5FaWCEzHqw_vaVKQNSUO8fuoma9lU-o6yx_Rv4ysfxJUR66qyWn_TU0IBVBUKuNpAGOVxZ8_m7"/>
+</div>
+</nav>
+<div class="flex pt-14 h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex bg-surface-container-low dark:bg-inverse-surface fixed left-0 top-14 bottom-0 w-60 border-r border-outline-variant dark:border-outline flex-col p-md gap-sm z-30">
+<div class="mb-lg flex items-center gap-sm px-sm">
+<img alt="Workspace Icon" class="w-10 h-10 rounded-DEFAULT border border-outline-variant" data-alt="A clean, abstract logo or icon representing a global workspace. It features geometric shapes and a subtle blue corporate color palette. The aesthetic is modern, flat, and professional, designed to look like a high-end SaaS application workspace emblem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFB6ZT1FFmN1TmgRCtmWJ8XbeeCSrzuAc14zUAlwG_Xw7sGOA_jkRhql9q0nUfCsNHTFPqHmQ_uWC-bLAYIOsdT417JePrLYXqc-xjlXrBD_Nkbnqa0dZ7cmg5VmjokgR86eII9P1efo_OVXg6BO14Vw1xbxWlxp3wOHSqwjuhu81wQoOVK_99weoDsxO1qPzUdoZS8MYjSPkXKl8-PSmalaOB3QjTS2B_421kK-GfSEwIxyvvEIxr5MG4qJ3IUISgtplfZVgIDNsu"/>
+<div>
+<div class="font-title-md text-title-md text-primary font-bold">Global Workspace</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Enterprise Plan</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-button text-button py-sm px-md rounded-lg mb-md hover:bg-primary-fixed-variant active:bg-[#003ea8] transition-colors border border-transparent">
+                New Document
+            </button>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm rounded-lg hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150" data-icon="description" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-sm text-body-sm">Documents</span>
+</a>
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-md py-sm transition-colors duration-150" data-icon="group" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-sm text-body-sm font-medium">Members</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm rounded-lg hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150" data-icon="settings" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm rounded-lg hover:bg-surface-container-highest transition-colors duration-150" data-icon="help" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-sm text-body-sm">Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-60 p-md md:p-xl bg-background overflow-y-auto w-full">
+<div class="max-w-container-max mx-auto w-full">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-xl gap-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Alpha Project Team</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">Manage workspace members and their access roles.</p>
+</div>
+<button class="bg-primary text-on-primary font-button text-button py-sm px-lg rounded-lg hover:bg-primary-container active:bg-[#003ea8] transition-colors border border-transparent shadow-sm flex items-center gap-xs w-full md:w-auto justify-center" onclick="document.getElementById('inviteModal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+                        Invite Member
+                    </button>
+</div>
+<!-- Bento Grid Container for Table -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<!-- Table Toolbar -->
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<div class="font-title-md text-title-md text-on-surface">Active Members <span class="text-on-surface-variant font-normal text-sm ml-xs">(4)</span></div>
+<div class="flex gap-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant" style="font-size: 18px;">search</span>
+<input class="pl-xl pr-sm py-xs border border-outline-variant rounded-lg font-body-sm text-body-sm focus:border-primary focus:ring-0 focus:shadow-[0_0_0_2px_rgba(37,99,235,0.2)] transition-shadow w-48" placeholder="Filter members..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Members Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface">
+<th class="py-sm px-md font-body-sm text-body-sm text-on-surface-variant font-semibold">Member</th>
+<th class="py-sm px-md font-body-sm text-body-sm text-on-surface-variant font-semibold">Role</th>
+<th class="py-sm px-md font-body-sm text-body-sm text-on-surface-variant font-semibold">Last Active</th>
+<th class="py-sm px-md font-body-sm text-body-sm text-on-surface-variant font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-md px-md">
+<div class="flex items-center gap-md">
+<img alt="Tom Cook" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A small avatar of a professional male." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU3kBGZLBJ6NaoNghrQjtYZFicgG8ERGTUN54upBMQtoWwMR1pEXvvdLrDWelhNYtNiVtTxlv2HdRV9HUQAhHokzZc8ddEdMuNUk4_mPOThrskkhTBPMurYSFzdpi8Zgy2hIS8o1G2ZN5wras0BsSvHypL2e2vnOdQVmcuBtrHB8Fh-i-b14rTbDfEpQIufdpywKgakZYXlkRqoZaqvzclw17SzL6Lawwa4KYTYrppcTgKk9GCHQtjxDSb1uOA3CAliP9r6lIwZmVI"/>
+<div>
+<div class="font-body-sm text-body-sm font-medium text-on-surface">Tom Cook</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant">tom@reqgit.io</div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-xs py-[2px] rounded-DEFAULT bg-primary-container/10 text-primary font-label-mono text-[11px] uppercase tracking-wider border border-primary-container/20">Admin</span>
+</td>
+<td class="py-md px-md font-body-sm text-body-sm text-on-surface-variant">Just now</td>
+<td class="py-md px-md text-right">
+<button class="text-on-surface-variant hover:text-error transition-colors p-xs rounded-full hover:bg-error-container/50 opacity-0 group-hover:opacity-100" title="Remove Member">
+<span class="material-symbols-outlined" style="font-size: 20px;">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-md px-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center font-title-md text-sm text-on-secondary-fixed border border-outline-variant">SR</div>
+<div>
+<div class="font-body-sm text-body-sm font-medium text-on-surface">Sarah Rogers</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant">sarah@reqgit.io</div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-xs py-[2px] rounded-DEFAULT bg-surface-variant text-on-surface-variant font-label-mono text-[11px] uppercase tracking-wider border border-outline-variant">Editor</span>
+</td>
+<td class="py-md px-md font-body-sm text-body-sm text-on-surface-variant">2 hours ago</td>
+<td class="py-md px-md text-right">
+<button class="text-on-surface-variant hover:text-error transition-colors p-xs rounded-full hover:bg-error-container/50 opacity-0 group-hover:opacity-100" title="Remove Member">
+<span class="material-symbols-outlined" style="font-size: 20px;">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-md px-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center font-title-md text-sm text-on-tertiary-fixed border border-outline-variant">MJ</div>
+<div>
+<div class="font-body-sm text-body-sm font-medium text-on-surface">Mike Johnson</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant">mike.j@external.com</div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-xs py-[2px] rounded-DEFAULT bg-surface-variant text-on-surface-variant font-label-mono text-[11px] uppercase tracking-wider border border-outline-variant">Viewer</span>
+</td>
+<td class="py-md px-md font-body-sm text-body-sm text-on-surface-variant">Yesterday</td>
+<td class="py-md px-md text-right">
+<button class="text-on-surface-variant hover:text-error transition-colors p-xs rounded-full hover:bg-error-container/50 opacity-0 group-hover:opacity-100" title="Remove Member">
+<span class="material-symbols-outlined" style="font-size: 20px;">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Invite Modal Overlay -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-on-background/50 backdrop-blur-sm p-md" id="inviteModal">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-lg w-full max-w-md overflow-hidden transform transition-all">
+<div class="px-lg py-md border-b border-outline-variant flex justify-between items-center bg-surface">
+<h2 class="font-title-md text-title-md text-on-surface">Invite New Member</h2>
+<button class="text-on-surface-variant hover:text-on-surface p-xs rounded-full hover:bg-surface-container transition-colors" onclick="document.getElementById('inviteModal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-lg space-y-md">
+<div>
+<label class="block font-body-sm text-body-sm font-medium text-on-surface mb-xs">Email Address</label>
+<input class="w-full border border-outline-variant rounded-lg px-md py-sm font-body-sm text-body-sm focus:border-primary focus:ring-0 focus:shadow-[0_0_0_2px_rgba(37,99,235,0.2)] transition-shadow placeholder:text-on-surface-variant/50" placeholder="colleague@company.com" type="email"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm font-medium text-on-surface mb-xs">Role</label>
+<div class="relative">
+<select class="w-full border border-outline-variant rounded-lg px-md py-sm font-body-sm text-body-sm focus:border-primary focus:ring-0 focus:shadow-[0_0_0_2px_rgba(37,99,235,0.2)] transition-shadow appearance-none bg-surface-container-lowest text-on-surface">
+<option value="viewer">Viewer - Read only access</option>
+<option value="editor">Editor - Can modify documents</option>
+<option value="admin">Admin - Full access including billing</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<div class="px-lg py-md border-t border-outline-variant bg-surface flex justify-end gap-sm">
+<button class="px-md py-sm rounded-lg border border-outline-variant text-on-surface font-button text-button hover:bg-surface-container transition-colors" onclick="document.getElementById('inviteModal').classList.add('hidden')">
+                    Cancel
+                </button>
+<button class="px-md py-sm rounded-lg border border-transparent bg-primary text-on-primary font-button text-button hover:bg-primary-container active:bg-[#003ea8] transition-colors shadow-sm" onclick="document.getElementById('inviteModal').classList.add('hidden')">
+                    Send Invite
+                </button>
+</div>
+</div>
+</div>
+</body></html>

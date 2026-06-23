@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReqGit - User Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#b4c5ff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#737686",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-container": "#ededf9",
+                    "primary-container": "#2563eb",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e1e2ed",
+                    "on-background": "#191b23",
+                    "surface-dim": "#d9d9e5",
+                    "surface-variant": "#e1e2ed",
+                    "on-secondary-container": "#54647a",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "background": "#faf8ff",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#bc4800",
+                    "inverse-surface": "#2e3039",
+                    "surface-container-low": "#f3f3fe",
+                    "on-primary-fixed": "#00174b",
+                    "primary-fixed": "#dbe1ff",
+                    "secondary": "#505f76",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "tertiary": "#943700",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#faf8ff",
+                    "inverse-on-surface": "#f0f0fb",
+                    "surface-bright": "#faf8ff",
+                    "on-surface": "#191b23",
+                    "on-tertiary-container": "#ffede6",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-surface-variant": "#434655",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e7e7f3",
+                    "surface-tint": "#0053db",
+                    "outline-variant": "#c3c6d7",
+                    "secondary-container": "#d0e1fb",
+                    "error-container": "#ffdad6",
+                    "primary": "#004ac6",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "tertiary-fixed": "#ffdbcd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "0.25rem",
+                    "container-max": "1280px",
+                    "base": "4px",
+                    "lg": "1.5rem",
+                    "gutter": "1rem",
+                    "sm": "0.5rem",
+                    "md": "1rem",
+                    "xl": "2.5rem"
+            },
+            "fontFamily": {
+                    "button": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "title-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "button": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-mono": ["13px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pt-[56px] pb-xl flex flex-col md:flex-row">
+<!-- TopNavBar (Authenticated) -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-inverse-primary font-body-sm text-body-sm fixed top-0 w-full z-40 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center h-14 px-md w-full">
+<div class="flex items-center gap-md">
+<span class="text-title-md font-title-md font-bold text-primary dark:text-inverse-primary">ReqGit</span>
+<!-- Search Bar (on_left) -->
+<div class="hidden md:flex items-center bg-surface-container-low border border-outline-variant rounded px-sm py-1 ml-md w-64 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all duration-200">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">search</span>
+<input class="bg-transparent border-none outline-none focus:ring-0 text-body-sm font-body-sm w-full ml-xs text-on-surface placeholder:text-on-surface-variant" placeholder="Search spaces, documents..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button aria-label="notifications" class="p-1 hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded text-on-surface-variant transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="help_outline" class="p-1 hover:bg-surface-container-low dark:hover:bg-surface-container-highest rounded text-on-surface-variant transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div aria-label="User Avatar" class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-title-md text-title-md cursor-pointer border border-outline-variant ml-sm hover:ring-2 hover:ring-primary transition-all">
+                A
+            </div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col p-md gap-sm bg-surface-container-low dark:bg-inverse-surface fixed left-0 top-14 bottom-0 w-60 border-r border-outline-variant dark:border-outline flat no shadows z-30">
+<div class="flex items-center gap-sm mb-lg mt-sm px-xs">
+<div aria-label="Workspace Icon" class="w-10 h-10 rounded bg-primary text-on-primary flex items-center justify-center font-bold">
+                G
+            </div>
+<div>
+<h2 class="text-title-md font-title-md font-bold text-primary leading-tight">Global Workspace</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Enterprise Plan</p>
+</div>
+</div>
+<button class="flex items-center justify-center gap-xs bg-primary text-on-primary font-button text-button rounded-lg py-sm px-md mb-md hover:bg-primary-fixed-variant transition-colors active:bg-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Document
+        </button>
+<div class="flex-grow flex flex-col gap-xs">
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="description">description</span>
+<span class="font-body-sm text-body-sm">Documents</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span class="font-body-sm text-body-sm">Members</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+</div>
+<div class="mt-auto">
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span class="font-body-sm text-body-sm">Help Center</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full md:ml-60 px-md py-lg md:px-gutter md:py-xl mx-auto max-w-container-max flex flex-col gap-xl">
+<!-- Hero/Greeting -->
+<section class="flex flex-col gap-xs">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Welcome back, Alex</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Here is an overview of your active workspaces and recent changes.</p>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg items-start">
+<!-- Main Column: Teams -->
+<div class="lg:col-span-2 flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md text-on-surface">My Teams</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Team Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md hover:shadow-sm transition-shadow flex flex-col gap-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">
+                                    AP
+                                </div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface leading-tight">Alpha Project</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">12 Members</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-xs">
+<span class="px-2 py-1 rounded bg-surface-container-low text-on-surface-variant font-label-mono text-label-mono border border-outline-variant">3 Active Specs</span>
+</div>
+<button class="mt-auto w-full py-2 px-4 rounded border border-outline-variant text-on-surface font-button text-button hover:bg-surface-container-highest transition-colors">
+                            View Workspace
+                        </button>
+</div>
+<!-- Team Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md hover:shadow-sm transition-shadow flex flex-col gap-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold">
+                                    BS
+                                </div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface leading-tight">Beta System</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">5 Members</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-xs">
+<span class="px-2 py-1 rounded bg-surface-container-low text-on-surface-variant font-label-mono text-label-mono border border-outline-variant">1 Active Spec</span>
+</div>
+<button class="mt-auto w-full py-2 px-4 rounded border border-outline-variant text-on-surface font-button text-button hover:bg-surface-container-highest transition-colors">
+                            View Workspace
+                        </button>
+</div>
+<!-- Create New Team Card -->
+<div class="bg-surface-container border border-dashed border-outline-variant rounded-lg p-md flex flex-col items-center justify-center gap-sm min-h-[160px] cursor-pointer hover:bg-surface-container-high transition-colors group">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest group-hover:bg-primary-container text-on-surface-variant group-hover:text-on-primary-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</div>
+<span class="font-button text-button text-on-surface-variant group-hover:text-primary transition-colors">Create New Team</span>
+</div>
+</div>
+</div>
+<!-- Side Column: Recent Activity -->
+<div class="lg:col-span-1 flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md text-on-surface">Recent Activity</h2>
+<button class="text-primary hover:text-primary-fixed-variant font-button text-button transition-colors">View All</button>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg flex flex-col">
+<!-- Activity Item 1 -->
+<div class="p-md border-b border-outline-variant flex gap-sm items-start hover:bg-surface-container-low transition-colors">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex-shrink-0 flex items-center justify-center font-bold text-xs mt-1">
+                            S
+                        </div>
+<div class="flex flex-col">
+<p class="font-body-sm text-body-sm text-on-surface">
+<span class="font-semibold">Sarah</span> uploaded <span class="font-label-mono text-label-mono bg-surface-container px-1 py-0.5 rounded text-xs border border-outline-variant">Alpha Project SRS v2.0</span>
+</p>
+<span class="text-xs text-on-surface-variant mt-0.5">10 minutes ago</span>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="p-md flex gap-sm items-start hover:bg-surface-container-low transition-colors">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-on-surface-variant flex-shrink-0 flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-[16px]">edit_document</span>
+</div>
+<div class="flex flex-col">
+<p class="font-body-sm text-body-sm text-on-surface">
+<span class="font-label-mono text-label-mono bg-surface-container px-1 py-0.5 rounded text-xs border border-outline-variant">Beta Specs</span> were modified
+                            </p>
+<span class="text-xs text-on-surface-variant mt-0.5">2 hours ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

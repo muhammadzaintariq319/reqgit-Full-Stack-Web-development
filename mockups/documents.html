@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Document Repository - ReqGit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#737686",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-container": "#ededf9",
+                        "primary-container": "#2563eb",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e1e2ed",
+                        "on-background": "#191b23",
+                        "surface-dim": "#d9d9e5",
+                        "surface-variant": "#e1e2ed",
+                        "on-secondary-container": "#54647a",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "background": "#faf8ff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#bc4800",
+                        "inverse-surface": "#2e3039",
+                        "surface-container-low": "#f3f3fe",
+                        "on-primary-fixed": "#00174b",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary": "#505f76",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "tertiary": "#943700",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "inverse-on-surface": "#f0f0fb",
+                        "surface-bright": "#faf8ff",
+                        "on-surface": "#191b23",
+                        "on-tertiary-container": "#ffede6",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-surface-variant": "#434655",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e7e7f3",
+                        "surface-tint": "#0053db",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-container": "#d0e1fb",
+                        "error-container": "#ffdad6",
+                        "primary": "#004ac6",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "tertiary-fixed": "#ffdbcd"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        xs: "0.25rem",
+                        "container-max": "1280px",
+                        base: "4px",
+                        lg: "1.5rem",
+                        gutter: "1rem",
+                        sm: "0.5rem",
+                        md: "1rem",
+                        xl: "2.5rem"
+                    },
+                    fontFamily: {
+                        button: ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    fontSize: {
+                        button: ["14px", { lineHeight: "20px", fontWeight: "500" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-mono": ["13px", { lineHeight: "16px", fontWeight: "500" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen">
+<!-- TopNavBar (Authenticated) -->
+<nav class="bg-surface dark:bg-surface text-primary dark:text-inverse-primary font-body-sm text-body-sm fixed top-0 w-full z-40 border-b border-outline-variant dark:border-outline shadow-none">
+<div class="flex justify-between items-center h-14 px-md w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<div class="text-title-md font-title-md font-bold text-primary dark:text-inverse-primary">ReqGit</div>
+<div class="hidden md:flex items-center bg-surface-container-high rounded-full px-sm py-xs border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-xs" style="font-size: 18px;">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48 text-on-surface p-0" placeholder="Search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined cursor-pointer active:scale-95 transition-transform text-on-surface-variant hover:bg-surface-container-low p-xs rounded-full">notifications</span>
+<span class="material-symbols-outlined cursor-pointer active:scale-95 transition-transform text-on-surface-variant hover:bg-surface-container-low p-xs rounded-full">help_outline</span>
+</div>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A small circular avatar image showing a professional headshot of a user. The image should be well-lit and convey a modern enterprise software aesthetic. Clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAJmfN8la5sJFWmov68uF4h6jw65qqJMImOUPsUW0BVpX7RCDsEZzywjR9cUI_I8jWOYfAS8xGAP0U33hWNxRJkD_ixjqGFHa2i-yDhom5oKKIrrq_anRP-ESU0M2rXur7B0wwnGRGA_jXNWmCtIk3w1IxpGESDXTXujQ6L6uC-vwW81YtTfXJzZaKSK1viHYAqKUz4xR6876M73Zcw1Q1axAMbZQjZE4hdEYdsNZrp-APdCEuHGtVBOyhvVVA4CsMfc32VKsdtnz0"/>
+</div>
+</div>
+</nav>
+<div class="flex pt-14 min-h-screen max-w-container-max mx-auto">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col p-md gap-sm bg-surface-container-low dark:bg-inverse-surface text-primary dark:text-inverse-primary font-body-sm text-body-sm fixed left-0 top-14 bottom-0 w-60 border-r border-outline-variant dark:border-outline shadow-none z-30">
+<div class="mb-lg">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-on-primary font-bold">GW</div>
+<div>
+<div class="text-title-md font-title-md font-bold text-primary">Global Workspace</div>
+<div class="text-on-surface-variant text-[12px]">Enterprise Plan</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-button text-button py-sm rounded-lg hover:bg-blue-700 active:bg-blue-800 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+                    New Document
+                </button>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<!-- Active Item -->
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-md py-sm transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+                    Documents
+                </a>
+<!-- Inactive Items -->
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+                    Members
+                </a>
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm hover:bg-surface-container-highest transition-colors duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Help Center
+                </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-60 p-md md:p-xl w-full">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-xl gap-md">
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-background">Project Documents</h1>
+<button class="bg-primary text-on-primary font-button text-button py-sm px-md rounded-lg hover:bg-blue-700 active:bg-blue-800 transition-colors flex items-center justify-center gap-xs shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 20px;">upload</span>
+                    Upload New Document
+                </button>
+</div>
+<!-- Upload Zone -->
+<div class="mb-xl border-2 border-dashed border-outline-variant rounded-xl bg-surface p-xl flex flex-col items-center justify-center text-center transition-colors hover:border-primary hover:bg-surface-container-low cursor-pointer group">
+<div class="w-16 h-16 bg-surface-container-highest rounded-full flex items-center justify-center mb-md group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container" style="font-size: 32px;">cloud_upload</span>
+</div>
+<h3 class="text-title-md font-title-md mb-xs">Drag and drop your SRS files here</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-md">Supports .docx, .pdf, .md up to 50MB</p>
+<div class="text-button font-button text-primary">Or click to browse</div>
+</div>
+<!-- Filter/Sort Bar -->
+<div class="flex flex-col sm:flex-row justify-between items-center mb-md pb-sm border-b border-surface-container-highest gap-sm">
+<div class="flex gap-sm w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0">
+<button class="px-sm py-xs rounded-full bg-primary-container text-on-primary-container text-body-sm font-body-sm whitespace-nowrap">All Documents</button>
+<button class="px-sm py-xs rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low text-body-sm font-body-sm whitespace-nowrap">Drafts</button>
+<button class="px-sm py-xs rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low text-body-sm font-body-sm whitespace-nowrap">Approved</button>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant text-body-sm font-body-sm w-full sm:w-auto justify-end">
+<span class="material-symbols-outlined" style="font-size: 18px;">sort</span>
+                    Sort by: Last Modified
+                </div>
+</div>
+<!-- Document Grid (Bento style approach) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col hover:shadow-sm transition-shadow">
+<div class="flex justify-between items-start mb-md pb-sm border-b border-surface-container-lowest">
+<div class="flex items-center gap-sm">
+<div class="p-xs bg-primary-fixed rounded">
+<span class="material-symbols-outlined text-on-primary-fixed-variant">article</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-on-background leading-tight">Authentication API Spec</h4>
+<div class="text-[12px] text-on-surface-variant font-label-mono mt-xs">auth-api-srs.md</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded bg-green-100 text-green-700 text-[12px] font-semibold border border-green-200">
+                            v2.0
+                        </span>
+</div>
+<div class="flex-1 mb-md">
+<div class="flex items-center gap-xs text-body-sm font-body-sm text-on-surface-variant mb-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">person</span>
+                            Sarah Jenkins
+                        </div>
+<div class="flex items-center gap-xs text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+                            Modified 2 hours ago
+                        </div>
+</div>
+<div class="flex gap-sm mt-auto pt-sm border-t border-surface-container">
+<button class="flex-1 bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">visibility</span> View
+                        </button>
+<button class="flex-1 bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span> DL
+                        </button>
+<button class="flex-1 bg-surface text-primary border border-primary hover:bg-primary-fixed font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">history</span> Hist
+                        </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col hover:shadow-sm transition-shadow">
+<div class="flex justify-between items-start mb-md pb-sm border-b border-surface-container-lowest">
+<div class="flex items-center gap-sm">
+<div class="p-xs bg-secondary-container rounded">
+<span class="material-symbols-outlined text-on-secondary-container">description</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-on-background leading-tight">Payment Gateway Integration</h4>
+<div class="text-[12px] text-on-surface-variant font-label-mono mt-xs">payment-reqs.docx</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded bg-amber-100 text-amber-700 text-[12px] font-semibold border border-amber-200">
+                            Draft
+                        </span>
+</div>
+<div class="flex-1 mb-md">
+<div class="flex items-center gap-xs text-body-sm font-body-sm text-on-surface-variant mb-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">person</span>
+                            Marcus Chen
+                        </div>
+<div class="flex items-center gap-xs text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+                            Modified yesterday
+                        </div>
+</div>
+<div class="flex gap-sm mt-auto pt-sm border-t border-surface-container">
+<button class="flex-1 bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">visibility</span> View
+                        </button>
+<button class="flex-1 bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span> DL
+                        </button>
+<button class="flex-1 bg-surface text-primary border border-primary hover:bg-primary-fixed font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">history</span> Hist
+                        </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col hover:shadow-sm transition-shadow">
+<div class="flex justify-between items-start mb-md pb-sm border-b border-surface-container-lowest">
+<div class="flex items-center gap-sm">
+<div class="p-xs bg-tertiary-fixed rounded">
+<span class="material-symbols-outlined text-on-tertiary-fixed">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-on-background leading-tight">User Dashboard SRS</h4>
+<div class="text-[12px] text-on-surface-variant font-label-mono mt-xs">dashboard-v1.pdf</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded bg-blue-100 text-blue-700 text-[12px] font-semibold border border-blue-200">
+                            v1.0
+                        </span>
+</div>
+<div class="flex-1 mb-md">
+<div class="flex items-center gap-xs text-body-sm font-body-sm text-on-surface-variant mb-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">person</span>
+                            Elena Rodriguez
+                        </div>
+<div class="flex items-center gap-xs text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+                            Modified Oct 12, 2023
+                        </div>
+</div>
+<div class="flex gap-sm mt-auto pt-sm border-t border-surface-container">
+<button class="flex-1 bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">visibility</span> View
+                        </button>
+<button class="flex-1 bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span> DL
+                        </button>
+<button class="flex-1 bg-surface text-primary border border-primary hover:bg-primary-fixed font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">history</span> Hist
+                        </button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col hover:shadow-sm transition-shadow opacity-75">
+<div class="flex justify-between items-start mb-md pb-sm border-b border-surface-container-lowest">
+<div class="flex items-center gap-sm">
+<div class="p-xs bg-surface-container-high rounded">
+<span class="material-symbols-outlined text-outline">article</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-on-background leading-tight line-through text-outline">Legacy Data Model</h4>
+<div class="text-[12px] text-outline font-label-mono mt-xs">legacy-data.md</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded bg-slate-100 text-slate-600 text-[12px] font-semibold border border-slate-200">
+                            Deprecated
+                        </span>
+</div>
+<div class="flex-1 mb-md">
+<div class="flex items-center gap-xs text-body-sm font-body-sm text-outline mb-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">person</span>
+                            System
+                        </div>
+<div class="flex items-center gap-xs text-body-sm font-body-sm text-outline">
+<span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+                            Modified Jan 05, 2022
+                        </div>
+</div>
+<div class="flex gap-sm mt-auto pt-sm border-t border-surface-container">
+<button class="flex-1 bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low font-button text-button py-xs rounded flex items-center justify-center gap-xs disabled:opacity-50">
+<span class="material-symbols-outlined" style="font-size: 16px;">visibility</span> View
+                        </button>
+<button class="flex-1 bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low font-button text-button py-xs rounded flex items-center justify-center gap-xs disabled:opacity-50">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span> DL
+                        </button>
+<button class="flex-1 bg-surface text-primary border border-primary hover:bg-primary-fixed font-button text-button py-xs rounded flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 16px;">history</span> Hist
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReqGit - User Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "tertiary": "#943700",
+                        "surface-container-low": "#f3f3fe",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "on-background": "#191b23",
+                        "inverse-primary": "#b4c5ff",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-tertiary-container": "#ffede6",
+                        "surface-container-high": "#e7e7f3",
+                        "secondary": "#505f76",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-primary-container": "#eeefff",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-secondary-fixed": "#0b1c30",
+                        "tertiary-fixed": "#ffdbcd",
+                        "primary-container": "#2563eb",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#0053db",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ededf9",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-surface": "#2e3039",
+                        "tertiary-container": "#bc4800",
+                        "on-surface": "#191b23",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e1e2ed",
+                        "surface-variant": "#e1e2ed",
+                        "surface-bright": "#faf8ff",
+                        "outline": "#737686",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "background": "#faf8ff",
+                        "primary": "#004ac6",
+                        "on-surface-variant": "#434655",
+                        "surface-dim": "#d9d9e5",
+                        "secondary-container": "#d0e1fb",
+                        "on-secondary-container": "#54647a",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-error": "#ffffff",
+                        "surface": "#faf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "0.25rem",
+                        "md": "1rem",
+                        "lg": "1.5rem",
+                        "base": "4px",
+                        "container-max": "1280px",
+                        "xl": "2.5rem",
+                        "gutter": "1rem",
+                        "sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "button": ["Inter"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "button": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-mono": ["13px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #faf8ff; color: #191b23; }
+        .material-symbols-outlined { font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }
+        /* Custom scrollbar for subtle look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d9d9e5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c3c6d7; }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg antialiased flex flex-col md:flex-row min-h-screen">
+<!-- TopNavBar (Authenticated) - Mobile & Tablet only, hides on desktop -->
+<header class="bg-surface dark:bg-surface fixed top-0 w-full z-40 border-b border-outline-variant dark:border-outline flex justify-between items-center h-14 px-md w-full md:hidden">
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors material-symbols-outlined">menu</button>
+<div class="text-title-md font-title-md font-bold text-primary dark:text-inverse-primary">ReqGit</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors material-symbols-outlined">search</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors material-symbols-outlined">notifications</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors material-symbols-outlined">help_outline</button>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-outline-variant cursor-pointer active:scale-95 transition-transform" data-alt="A close up, professional headshot of a person looking directly at the camera. The background is a solid, neutral gray tone that matches a clean, modern enterprise software aesthetic. The lighting is soft and even, typical of a high-quality profile picture for a professional platform. The person has a friendly but focused expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADJCLhRBT-b9Dg9RPsCci7Wlwry40fUUNICRL4gMQPctgyZvXeM71Ty2swpO6QQfP5R2TewA2rDsYrecE5ZOQl2VPmclzEX8I0K52fIdS2i-g361TSN3Fi5uxiJhVQihqj8zHVGVA5nyhnLBWkQxooUp3cDf8ny4PYwZglqLsK3AIr4L3dPc7mS6C_q6b5tVZoNrIiFkKZvmVHw6GyOP6kwjG8DpSSTk471SjThvyVUOz6b5g9TEPjsnTmuXue2THBioxUp2WmoNUU"/>
+</div>
+</header>
+<!-- SideNavBar - Desktop only -->
+<nav class="bg-surface-container-low dark:bg-inverse-surface border-r border-outline-variant dark:border-outline hidden md:flex flex-col p-md gap-sm fixed left-0 top-0 bottom-0 w-60 z-30 pt-md">
+<div class="flex items-center gap-sm mb-lg px-xs">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-on-primary font-bold text-title-md">R</div>
+<div class="text-title-md font-title-md font-bold text-primary">ReqGit</div>
+</div>
+<div class="mb-lg px-xs">
+<div class="text-body-sm font-body-sm text-on-surface font-semibold">Global Workspace</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant text-xs">Enterprise Plan</div>
+</div>
+<button class="bg-primary text-on-primary hover:bg-[#003ea8] font-button text-button py-sm px-md rounded-lg flex items-center justify-center gap-sm transition-colors mb-md w-full">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Document
+        </button>
+<div class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm rounded-lg hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150 font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined">description</span>
+                Documents
+            </a>
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm rounded-lg hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150 font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined">group</span>
+                Members
+            </a>
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-md py-sm font-body-sm text-body-sm font-medium transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+                Settings
+            </a>
+</div>
+<div class="mt-auto">
+<a class="flex items-center gap-sm text-on-surface-variant px-md py-sm rounded-lg hover:bg-surface-container-highest dark:hover:bg-on-secondary-fixed-variant transition-colors duration-150 font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 mt-14 md:mt-0 md:ml-60 p-md md:p-xl bg-background max-w-container-max mx-auto w-full">
+<!-- Header -->
+<div class="mb-lg md:mb-xl flex justify-between items-end border-b border-outline-variant pb-sm">
+<div>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">User Settings</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Manage your personal profile, security preferences, and notification settings.</p>
+</div>
+<div class="hidden md:flex gap-sm">
+<button class="border border-outline-variant text-on-surface hover:bg-surface-container-low font-button text-button py-sm px-md rounded-lg transition-colors">Cancel</button>
+<button class="bg-primary text-on-primary hover:bg-[#003ea8] font-button text-button py-sm px-md rounded-lg transition-colors">Save Changes</button>
+</div>
+</div>
+<!-- Settings Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Navigation/TOC (Optional for longer pages, utilizing space) -->
+<div class="hidden lg:block lg:col-span-3">
+<div class="sticky top-xl flex flex-col gap-xs">
+<a class="text-primary font-medium border-l-2 border-primary pl-sm py-xs text-body-sm" href="#profile">Profile Information</a>
+<a class="text-on-surface-variant hover:text-on-surface border-l-2 border-transparent pl-sm py-xs text-body-sm transition-colors" href="#security">Security &amp; Password</a>
+<a class="text-on-surface-variant hover:text-on-surface border-l-2 border-transparent pl-sm py-xs text-body-sm transition-colors" href="#preferences">Application Preferences</a>
+</div>
+</div>
+<!-- Right Column: Settings Content -->
+<div class="lg:col-span-9 flex flex-col gap-lg">
+<!-- Profile Section -->
+<section class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow" id="profile">
+<div class="border-b border-surface-dim bg-surface-bright px-md py-sm">
+<h2 class="font-title-md text-title-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">person</span>
+                            Profile Information
+                        </h2>
+</div>
+<div class="p-md flex flex-col gap-md">
+<!-- Avatar Upload -->
+<div class="flex items-center gap-md">
+<div class="relative">
+<img alt="Current Avatar" class="w-20 h-20 rounded-full border border-outline-variant object-cover" data-alt="A close up, professional headshot of a person looking directly at the camera. The background is a solid, neutral gray tone that matches a clean, modern enterprise software aesthetic. The lighting is soft and even, typical of a high-quality profile picture for a professional platform. The person has a friendly but focused expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmnTnFrd6rNKHOvVYmnV7ULlLcPnAZyQJuuM3N75EelPEgF7qwfFCW_5ASJvl0es_Ab9SCypnoTN66FG4zPJ3yDP_yUmtW6MEnMswIQRXoscYLbSSyiMCw0Z6cqvZYV_RXkZ-MXospQR0zydsmPmgHsWP3UCGq1Qc-61k_7beVoHpBSgB6j5qtPNOW5sMbDvhylBM_ott4IflKJQb_NMs86JyXfFhOLs-z1Gb7oB4XnrwSP-DVfWQr0vHturLbJpr13b4fYJU85EPE"/>
+<button class="absolute bottom-0 right-0 bg-surface border border-outline-variant rounded-full p-xs text-on-surface hover:bg-surface-container-low transition-colors" title="Change Avatar">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+</div>
+<div>
+<h3 class="font-body-sm text-body-sm font-medium text-on-surface">Profile Picture</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-xs">PNG, JPG or GIF up to 5MB. Recommended size is 256x256px.</p>
+<div class="mt-sm flex gap-sm">
+<button class="border border-outline-variant text-on-surface hover:bg-surface-container-low font-button text-button py-[4px] px-sm rounded text-xs transition-colors">Upload New</button>
+<button class="text-error hover:bg-error-container hover:text-on-error-container font-button text-button py-[4px] px-sm rounded text-xs transition-colors">Remove</button>
+</div>
+</div>
+</div>
+<!-- Form Fields -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md mt-sm">
+<div class="flex flex-col gap-xs">
+<label class="font-body-sm text-body-sm font-medium text-on-surface" for="firstName">First Name</label>
+<input class="border border-outline-variant rounded-md px-sm py-sm font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-on-surface bg-surface" id="firstName" type="text" value="Alex"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-body-sm text-body-sm font-medium text-on-surface" for="lastName">Last Name</label>
+<input class="border border-outline-variant rounded-md px-sm py-sm font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-on-surface bg-surface" id="lastName" type="text" value="Developer"/>
+</div>
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-body-sm text-body-sm font-medium text-on-surface" for="email">Email Address</label>
+<input class="border border-outline-variant rounded-md px-sm py-sm font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-on-surface bg-surface" id="email" type="email" value="alex.dev@example.com"/>
+</div>
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-body-sm text-body-sm font-medium text-on-surface" for="bio">Short Bio (Optional)</label>
+<textarea class="border border-outline-variant rounded-md px-sm py-sm font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-on-surface bg-surface resize-none" id="bio" rows="3">Senior requirements engineer focusing on API documentation.</textarea>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Section -->
+<section class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow" id="security">
+<div class="border-b border-surface-dim bg-surface-bright px-md py-sm">
+<h2 class="font-title-md text-title-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">security</span>
+                            Security &amp; Password
+                        </h2>
+</div>
+<div class="p-md flex flex-col gap-lg">
+<!-- Change Password -->
+<div>
+<h3 class="font-body-sm text-body-sm font-medium text-on-surface mb-sm">Change Password</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-body-sm text-body-sm text-on-surface-variant text-xs" for="currentPassword">Current Password</label>
+<input class="border border-outline-variant rounded-md px-sm py-sm font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-on-surface bg-surface" id="currentPassword" type="password"/>
+</div>
+<div class="hidden md:block"></div> <!-- Spacer -->
+<div class="flex flex-col gap-xs">
+<label class="font-body-sm text-body-sm text-on-surface-variant text-xs" for="newPassword">New Password</label>
+<input class="border border-outline-variant rounded-md px-sm py-sm font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-on-surface bg-surface" id="newPassword" type="password"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-body-sm text-body-sm text-on-surface-variant text-xs" for="confirmPassword">Confirm New Password</label>
+<input class="border border-outline-variant rounded-md px-sm py-sm font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all text-on-surface bg-surface" id="confirmPassword" type="password"/>
+</div>
+</div>
+<div class="mt-sm">
+<button class="border border-outline-variant text-on-surface hover:bg-surface-container-low font-button text-button py-[6px] px-sm rounded-md text-sm transition-colors">Update Password</button>
+</div>
+</div>
+<hr class="border-outline-variant border-t"/>
+<!-- Two-Factor Authentication -->
+<div class="flex items-start justify-between gap-md">
+<div>
+<h3 class="font-body-sm text-body-sm font-medium text-on-surface flex items-center gap-xs">
+                                    Two-Factor Authentication (2FA)
+                                    <span class="bg-surface-container-highest text-on-surface-variant px-xs py-[2px] rounded text-[10px] font-bold uppercase tracking-wider">Recommended</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-sm mt-xs">Add an extra layer of security to your account by requiring a verification code upon login.</p>
+</div>
+<!-- Custom Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer mt-xs">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-dim peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-fixed rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Active Sessions (Visual extra) -->
+<div class="bg-surface-container-low p-sm rounded-md border border-outline-variant">
+<h4 class="font-body-sm text-body-sm font-medium text-on-surface text-sm mb-xs">Active Sessions</h4>
+<div class="flex justify-between items-center py-xs border-b border-outline-variant border-opacity-50 last:border-0">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">laptop_mac</span>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface text-sm">Mac OS • Chrome</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">San Francisco, US • Current Session</p>
+</div>
+</div>
+<span class="text-xs font-medium text-primary bg-primary-fixed px-2 py-1 rounded">Active</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Preferences Section -->
+<section class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow" id="preferences">
+<div class="border-b border-surface-dim bg-surface-bright px-md py-sm">
+<h2 class="font-title-md text-title-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">tune</span>
+                            Application Preferences
+                        </h2>
+</div>
+<div class="p-md flex flex-col gap-lg">
+<!-- Notifications -->
+<div>
+<h3 class="font-body-sm text-body-sm font-medium text-on-surface mb-sm">Email Notifications</h3>
+<div class="space-y-sm">
+<label class="flex items-start gap-sm cursor-pointer group">
+<input checked="" class="mt-1 w-4 h-4 text-primary bg-surface border-outline-variant rounded focus:ring-primary focus:ring-2" type="checkbox"/>
+<div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium group-hover:text-primary transition-colors">Document Updates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-sm">Receive emails when comments or edits are made on documents you are watching.</p>
+</div>
+</label>
+<label class="flex items-start gap-sm cursor-pointer group">
+<input checked="" class="mt-1 w-4 h-4 text-primary bg-surface border-outline-variant rounded focus:ring-primary focus:ring-2" type="checkbox"/>
+<div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium group-hover:text-primary transition-colors">Workspace Activity</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-sm">Weekly digest of activities within your assigned workspaces.</p>
+</div>
+</label>
+<label class="flex items-start gap-sm cursor-pointer group">
+<input class="mt-1 w-4 h-4 text-primary bg-surface border-outline-variant rounded focus:ring-primary focus:ring-2" type="checkbox"/>
+<div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium group-hover:text-primary transition-colors">Marketing &amp; Product News</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-sm">Updates on new ReqGit features, webinars, and promotions.</p>
+</div>
+</label>
+</div>
+</div>
+<hr class="border-outline-variant border-t"/>
+<!-- Theme Selection -->
+<div>
+<h3 class="font-body-sm text-body-sm font-medium text-on-surface mb-sm">Interface Theme</h3>
+<div class="flex gap-md">
+<label class="flex flex-col items-center gap-xs cursor-pointer group">
+<div class="w-24 h-16 rounded border-2 border-primary bg-surface flex items-center justify-center shadow-sm relative overflow-hidden">
+<!-- Mock Light UI -->
+<div class="absolute top-0 left-0 w-full h-3 bg-surface-dim border-b border-outline-variant"></div>
+<div class="absolute left-0 top-3 bottom-0 w-6 bg-surface-container-low border-r border-outline-variant"></div>
+<div class="absolute inset-0 flex items-center justify-center"><span class="material-symbols-outlined text-on-surface text-[20px]">light_mode</span></div>
+</div>
+<div class="flex items-center gap-xs">
+<input checked="" class="w-3 h-3 text-primary focus:ring-primary" name="theme" type="radio" value="light"/>
+<span class="font-body-sm text-body-sm text-on-surface text-sm">Light</span>
+</div>
+</label>
+<label class="flex flex-col items-center gap-xs cursor-pointer group opacity-50 hover:opacity-100 transition-opacity">
+<div class="w-24 h-16 rounded border border-outline-variant bg-[#191b23] flex items-center justify-center shadow-sm relative overflow-hidden">
+<!-- Mock Dark UI -->
+<div class="absolute top-0 left-0 w-full h-3 bg-[#2e3039] border-b border-[#434655]"></div>
+<div class="absolute left-0 top-3 bottom-0 w-6 bg-[#2e3039] border-r border-[#434655]"></div>
+<div class="absolute inset-0 flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px]">dark_mode</span></div>
+</div>
+<div class="flex items-center gap-xs">
+<input class="w-3 h-3 text-primary focus:ring-primary" name="theme" type="radio" value="dark"/>
+<span class="font-body-sm text-body-sm text-on-surface text-sm">Dark</span>
+</div>
+</label>
+<label class="flex flex-col items-center gap-xs cursor-pointer group opacity-50 hover:opacity-100 transition-opacity">
+<div class="w-24 h-16 rounded border border-outline-variant bg-gradient-to-br from-surface to-[#191b23] flex items-center justify-center shadow-sm relative overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center"><span class="material-symbols-outlined text-on-surface text-[20px] mix-blend-difference text-white">brightness_auto</span></div>
+</div>
+<div class="flex items-center gap-xs">
+<input class="w-3 h-3 text-primary focus:ring-primary" name="theme" type="radio" value="system"/>
+<span class="font-body-sm text-body-sm text-on-surface text-sm">System</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Mobile Save Actions (Sticky Bottom) -->
+<div class="md:hidden sticky bottom-0 bg-surface border-t border-outline-variant p-md flex gap-sm mt-md z-10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<button class="flex-1 border border-outline-variant text-on-surface font-button text-button py-sm rounded-lg">Cancel</button>
+<button class="flex-1 bg-primary text-on-primary font-button text-button py-sm rounded-lg">Save Changes</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar - Mobile only -->
+<nav class="bg-surface dark:bg-surface border-t border-outline-variant dark:border-outline fixed bottom-0 w-full z-40 md:hidden flex justify-around items-center h-16 pb-safe">
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-medium mt-1">Docs</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium mt-1">Members</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-primary" href="#">
+<div class="bg-primary-container px-4 py-1 rounded-full mb-1">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">settings</span>
+</div>
+<span class="text-[10px] font-medium font-bold">Settings</span>
+</a>
+</nav>
+</body></html>
