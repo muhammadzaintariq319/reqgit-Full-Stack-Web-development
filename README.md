@@ -262,7 +262,7 @@ The project has been tested for:
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/ReqGit.git
+git clone https://github.com/muhammadzaintariq319/reqgit-Full-Stack-Web-development.git
 ```
 
 ### Frontend
